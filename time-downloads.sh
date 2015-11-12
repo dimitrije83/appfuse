@@ -3,8 +3,15 @@
 set -o errexit
 set -o nounset
 
+# number of times to repeat download from each repo
+REPEAT_DOWNLOADS=${REPEAT_DOWNLOADS:="2"} 
+
 function init() {
   mkdir -p ~/.m2
+}
+
+function download() {
+  mvn dependency:resolve 1>/dev/null
 }
 
 function reset_repo() {
@@ -14,38 +21,44 @@ function reset_repo() {
   fi
 }
 
-function use_google() {
-  cp google_settings.xml ~/.m2/settings.xml
-  echo "google mirror" >&2
+function use_repo() {
+  local repo=$1
+  if [ ${repo} = "google" ]; then
+    cp google_settings.xml ~/.m2/settings.xml
+    echo -n "google mirror: "
+  else 
+    rm -rf ~/.m2/settings.xml || true
+    echo -n "default maven central: "
+  fi
 }
 
-function use_central() {
-  rm -rf ~/.m2/settings.xml || true
-  echo "default maven central" >&2
+function time_download() {
+  start=$(date +%s)
+  download
+  end=$(date +%s)
+  echo "$(($end-$start))s"
 }
 
 
 function main() {
 
-  reset_repo
-  use_central
-  time mvn dependency:resolve 1>/dev/null
-  echo "---" >&2
+  init
 
-  reset_repo
-  use_google
-  time mvn dependency:resolve 1>/dev/null
-  echo "---" >&2
+  use_repo central
+  i=0
+  while [ $i -lt ${REPEAT_DOWNLOADS} ]; do
+    reset_repo
+    time_download
+    i=$(($i + 1))
+  done
 
-  reset_repo
-  use_central
-  time mvn dependency:resolve 1>/dev/null
-  echo "---" >&2
-
-  reset_repo
-  use_google
-  time mvn dependency:resolve 1>/dev/null
-  echo "---" >&2
+  use_repo google
+  i=0
+  while [ $i -lt ${REPEAT_DOWNLOADS} ]; do
+    reset_repo
+    time_download
+    i=$(($i + 1))
+  done
 
 }
 
