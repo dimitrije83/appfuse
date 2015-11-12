@@ -16,12 +16,12 @@ function reset_repo() {
 
 function use_google() {
   cp google_settings.xml ~/.m2/settings.xml
-  echo "\ngoogle mirror"
+  echo "google mirror"
 }
 
 function use_central() {
   rm -rf ~/.m2/settings.xml || true
-  echo "\ndefault maven central"
+  echo "default maven central"
 }
 
 
