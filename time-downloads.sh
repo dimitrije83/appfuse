@@ -32,6 +32,18 @@ function main() {
   use_google
   time mvn dependency:resolve 1>/dev/null
   echo "---"
+
+  reset_repo
+  echo "default maven central"
+  time mvn dependency:resolve 1>/dev/null
+  echo "---"
+
+  reset_repo
+  echo "google mirror"
+  use_google
+  time mvn dependency:resolve 1>/dev/null
+  echo "---"
+
 }
 
 main $*
