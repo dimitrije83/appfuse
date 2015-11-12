@@ -16,12 +16,12 @@ function reset_repo() {
 
 function use_google() {
   cp google_settings.xml ~/.m2/settings.xml
-  echo "google mirror"
+  echo "google mirror" >&2
 }
 
 function use_central() {
   rm -rf ~/.m2/settings.xml || true
-  echo "default maven central"
+  echo "default maven central" >&2
 }
 
 
@@ -30,22 +30,22 @@ function main() {
   reset_repo
   use_central
   time mvn dependency:resolve 1>/dev/null
-  echo "---"
+  echo "---" >&2
 
   reset_repo
   use_google
   time mvn dependency:resolve 1>/dev/null
-  echo "---"
+  echo "---" >&2
 
   reset_repo
   use_central
   time mvn dependency:resolve 1>/dev/null
-  echo "---"
+  echo "---" >&2
 
   reset_repo
   use_google
   time mvn dependency:resolve 1>/dev/null
-  echo "---"
+  echo "---" >&2
 
 }
 
