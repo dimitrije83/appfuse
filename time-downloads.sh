@@ -9,6 +9,9 @@ function init() {
 
 function reset_repo() {
   mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false 1>/dev/null
+  if [ -d ~/.m2/repository ]; then
+    du -skc ~/.m2/repository
+  fi
 }
 
 function use_google() {
