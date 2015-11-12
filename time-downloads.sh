@@ -8,7 +8,7 @@ function init() {
 }
 
 function reset_repo() {
-  rm -rf ~/.m2/repository || true
+  mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false 1>/dev/null
 }
 
 function use_google() {
