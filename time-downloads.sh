@@ -1,4 +1,4 @@
-#!/bin/sh
+#! env bash
 
 set -o errexit
 set -o nounset
@@ -6,7 +6,6 @@ set -o nounset
 function init() {
   mkdir -p ~/.m2
 }
-
 
 function reset_repo() {
   rm -rf ~/.m2/repository || true
