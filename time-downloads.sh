@@ -25,7 +25,7 @@ function reset_repo() {
 function use_repo() {
   local repo=$1
   if [ ${repo} = "google" ]; then
-    cp ${BASE_DIR}google_settings.xml ~/.m2/settings.xml
+    cp ${BASE_DIR}/google_settings.xml ~/.m2/settings.xml
     echo -n "google mirror: "
   else 
     rm -rf ~/.m2/settings.xml || true
