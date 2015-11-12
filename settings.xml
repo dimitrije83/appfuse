@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <servers>
+        <server>
+            <id>appfuse-releases</id>
+            <username>appfuse-deployer</username>
+            <password>XXX</password>
+        </server>
+        <server>
+            <id>appfuse-snapshots</id>
+            <username>appfuse-deployer</username>
+            <password>XXX</password>
+        </server>
+    </servers>
+</settings>
+

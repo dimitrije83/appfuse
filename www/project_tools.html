@@ -1,0 +1,116 @@
+</dd>
+<script id="eraser">
+// hide all default navigation bars
+
+// get to the block
+var dd = document.getElementById("eraser").previousSibling;
+for( n=dd; n!=null; n=n.previousSibling ) {
+  if(n.nodeType==1) { // if element
+    if(n.tagName=="DD") { // kill all the link items
+      n.style.display = "none";
+    }
+    if(n.tagName=="DT") { // change the title
+      n.innerHTML = "<strong>AppFuse Project</strong>";
+    }
+  }
+}
+
+// delete the "get involved" block
+for( n=dd.parentNode.previousSibling; n!=null; n=n.previousSibling ) {
+  if(n.nodeType==1) { // if element
+    if(n.tagName=="DL") {
+      n.style.display = "none";
+    }
+  }
+}
+</script>
+<dd>
+  <ul>
+      <li>
+        <a href="http://appfuse.org" target="_top">AppFuse Home</a>
+      </li>
+      <li>
+        <a href="http://appfuse.org">Documentation</a>
+      </li>
+      <li><a href="http://demo.appfuse.org">Online Demos</a>
+      </li>
+      <li><a href="/sponsors.html">Project Sponsors</a></li>
+  </ul>
+</dd>
+<dd>
+  <ul>
+      <li>
+        <a href="http://appfuse.org/display/APF/AppFuse+QuickStart">QuickStart Guide</a>
+      </li>
+      <li>
+        <a href="http://appfuse.org/display/APF/FAQ">AppFuse FAQ</a>
+      </li>
+      <li>
+        <a href="https://appfuse.dev.java.net/servlets/ProjectNewsList">Announcements</a>
+      </li>
+      <li>
+        <a href="https://appfuse.dev.java.net/servlets/ProjectMembershipRequest">Join AppFuse</a>
+      </li>
+      <li><a href="http://www.frappr.com/appfuse">AppFuse Frappr Group</a></li>
+  </ul>
+</dd>
+<dd>
+  <ul>
+      <li><a href="http://appfuse.org/forums">Discussion Forums</a></li>
+      <li>
+        <a href="https://appfuse.dev.java.net/servlets/ProjectMailingListList">Mailing Lists</a>
+        <ul>
+            <li><a href="mailto:users-subscribe@appfuse.java.net">Subscribe</a></li>
+            <li><a href="http://news.gmane.org/gmane.comp.java.appfuse.user">Gmane</a> &amp; <a href="http://appfuse.org/forum">Nabble</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://appfuse.dev.java.net/source/browse/appfuse">Source code - SVN</a>
+      </li>
+      <li>
+        <a href="http://source.appfuse.org/browse/appfuse">FishEye for AppFuse</a>
+      </li>
+      <li>
+        <a href="http://issues.appfuse.org">JIRA Issue Tracker</a>
+      </li>
+      <li>
+        <a href="http://builds.appfuse.org">Continuous Integration</a>
+      </li>
+  </ul>
+</dd>
+<dd>
+  <ul>
+    <li><strong>Developer Blogs</strong></li>
+    <li><a href="http://jroller.com/page/ddcarter">Dave Carter</a></li>
+    <li><a href="http://raibledesigns.com">Matt Raible</a></li>
+    <li><a href="http://jroller.com/page/sjivan">Sanjiv Jivan</a></li>
+    <li><a href="http://www.thogau.net/blog">Thomas Gaudin</a></li>
+  </ul>
+<style type="text/css">
+.topline, .topbar { border: 0 }
+#banner { height: 0px }
+#banner img { display: none; }
+#logo { position: absolute; top: 70px; right: 20px; width: 250px; 
+        font-family: Arial, Helvetica, sans-serif; font-size: 9pt; 
+        padding: 10px 0px; text-align: center }
+</style>
+<div id="logo" style="background-image: none">
+<img src="http://appfuse.org/download/attachments/2/APF" width="203" height="74"/><br/>
+    <div style="text-align: center; background-image: none; display: none" id="servers">
+    <span style="font-style: italic">Runs blazingly fast on... </span><br/><br/>
+    <a href="http://tomcat.apache.org"><img src="https://appfuse.dev.java.net/images/tomcat-logo.jpg" alt="Tomcat" style="border: 0px none" height="40" width="57" /></a>
+    
+    <br/>...and <a href="http://raibledesigns.com/page/rd?entry=comparing_open_source_application_servers">most open source app servers</a>.
+    </div>
+</div>
+
+<script type="text/javascript">
+window.onload = function() {
+    if (document.getElementById("info") != null) {
+        document.getElementById("servers").style.display = "";
+    }
+}
+</script>
+
+
+

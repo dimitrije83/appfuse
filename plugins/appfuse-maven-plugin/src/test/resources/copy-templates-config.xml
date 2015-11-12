@@ -1,0 +1,16 @@
+<project>
+    <groupId>org.codehaus.mojo</groupId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.appfuse.plugins</groupId>
+                <artifactId>appfuse-maven-plugin</artifactId>
+                <configuration>
+                    <templateDirectory>target/templates/src/test/resources/appfuse</templateDirectory>
+                    <trunk>https://github.com/appfuse/appfuse/</trunk>
+                    <tag>trunk/</tag>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
