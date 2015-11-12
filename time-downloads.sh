@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-BASE_DIR=$(readlink -f $0)
+BASE_DIR=$(readlink -f `basename $0`)
 
 # number of times to repeat download from each repo
 REPEAT_DOWNLOADS=${REPEAT_DOWNLOADS:="2"} 
