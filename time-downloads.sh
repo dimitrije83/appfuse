@@ -21,10 +21,14 @@ function use_central() {
 
 
 function main() {
-  time mvn dependency:resolve
+  echo "default maven central"
+  time mvn dependency:resolve 1>/dev/null
+  echo "---"
   reset_repo
+  echo "google mirror"
   use_google
   time mvn dependency:resolve
+  echo "---"
 }
 
 main $*
