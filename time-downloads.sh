@@ -35,7 +35,7 @@ function time_download() {
   local start=$(date +%s)
   download
   local end=$(date +%s)
-  echo "$(( $end - $start ))s"
+  echo -n "$(( $end - $start ))s "
 }
 
 
@@ -50,6 +50,7 @@ function main() {
     time_download
     i=$(($i + 1))
   done
+  echo ""
 
   use_repo google
   i=0
@@ -58,6 +59,11 @@ function main() {
     time_download
     i=$(( $i + 1 ))
   done
+  echo ""
+
+  echo -n "download (w/ cache): "
+  time_download
+  echo
 
 }
 
