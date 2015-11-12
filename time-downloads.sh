@@ -15,7 +15,6 @@ function download() {
 }
 
 function reset_repo() {
-  mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false 1>/dev/null
   if [ -d ~/.m2/repository ]; then
     rm -rf ~/.m2/repository
   fi
@@ -33,10 +32,10 @@ function use_repo() {
 }
 
 function time_download() {
-  start=$(date +%s)
+  local start=$(date +%s)
   download
-  end=$(date +%s)
-  echo "$(($end-$start))s"
+  local end=$(date +%s)
+  echo "$(( $end - $start ))s"
 }
 
 
@@ -57,7 +56,7 @@ function main() {
   while [ $i -lt ${REPEAT_DOWNLOADS} ]; do
     reset_repo
     time_download
-    i=$(($i + 1))
+    i=$(( $i + 1 ))
   done
 
 }
