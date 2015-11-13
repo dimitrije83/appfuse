@@ -3,8 +3,6 @@
 set -o errexit
 set -o nounset
 
-BASE_DIR=$(readlink -f `dirname $0`)
-
 # number of times to repeat download from each repo
 REPEAT_DOWNLOADS=${REPEAT_DOWNLOADS:="2"} 
 
@@ -25,7 +23,18 @@ function reset_repo() {
 function use_repo() {
   local repo=$1
   if [ ${repo} = "google" ]; then
-    cp ${BASE_DIR}/google_settings.xml ~/.m2/settings.xml
+    cat <<EOF > ~/.m2/settings.xml
+<settings>
+  <mirrors>
+    <mirror>
+      <id>google-maven-central</id>
+      <name>Google Maven Central</name>
+      <url>https://maven-central.storage.googleapis.com</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>
+EOF
     echo -n "google mirror: "
   else 
     rm -rf ~/.m2/settings.xml || true
