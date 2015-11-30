@@ -13,3 +13,4 @@ AppFuse is released under version 2.0 of the [Apache License][].
 [latest news]: http://appfuse.org/display/APF/News
 [mailing lists]: http://appfuse.org/display/APF/Mailing+Lists
 [QuickStart Guide]: http://appfuse.org/display/APF/AppFuse+QuickStart
+
