@@ -1,0 +1,4 @@
+build:
+  image: java
+  commands:
+  script: cd web && ../time-downloads.sh
